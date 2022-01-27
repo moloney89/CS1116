@@ -1,0 +1,19 @@
+{% extends 'base.html' %}
+
+{% block main_content %}
+
+    <!-- 
+        You can use if statements in Jinja, as seen below.
+
+        For loops can also be used:
+
+        {% for d in days %}
+            {{ d }}
+        {% endfor %}
+     -->
+    {% if name %}
+        <p>So long, {{ name }}!</p>
+    {% else %}
+        <p>Bye bye, my anonymous friend!</p>
+    {% endif %}
+{% endblock %}

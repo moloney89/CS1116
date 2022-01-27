@@ -1,0 +1,27 @@
+<!-- <!DOCTYPE html>
+<html lang='en'>
+
+<head>
+    <meta charset="utf-8" />
+    <title>Web Development</title>
+</head>
+
+<body>
+    ---- {{ name }} -> this is a placeholder that will have its value passed in via the app.py 
+    <p>Hello, {{ name }}</p>
+</body>
+
+</html> -->
+
+<!--
+    Below we are using filling in a "hole" in a base.html file, which contains all of the code that is common between greet01.html and greet02.html. This
+    done using blocks that are assigned names, in this case "main_content"
+-->
+
+{% extends 'base.html' %}
+
+{% block main_content %}
+
+    <p>Hello, {{ name }}</p>
+
+{% endblock %}

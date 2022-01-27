@@ -46,4 +46,4 @@ def send_parting_by_name(name):
 
 @app.errorhandler(404)
 def page_not_found(error):
-    return 'You took an L', 404
+    return 'Wrong URL entered', 404

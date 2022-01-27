@@ -1,0 +1,22 @@
+{% extends 'base.html' %}
+
+{% block main_content %}
+
+<p>You chose {{player}}.</p>
+
+<p>Computer chose {{computer}}.</p>
+
+<p>{{result}}</p>
+
+{% if winner == 'P' %}
+<p>Player's {{player}} {{adjective}} Computer's {{computer}}.</p>
+
+{% elif winner == 'C' %} 
+<p>Computer's {{computer}} {{adjective}} Player's {{player}}.</p>
+
+{% else %}
+<p>Well that's {{adjective}}, {{computer}} &amp; {{player}} cancel. It's a draw.</p>
+
+{% endif %}
+
+{% endblock %}
