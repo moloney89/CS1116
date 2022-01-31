@@ -31,10 +31,10 @@ def rps15(player:str):
 
 
     elif computer in player_beats:
-        result = comp_win
+        result = player_win
 
     else:
-        result = player_win
+        result = comp_win
         
     
     
@@ -43,5 +43,7 @@ def rps15(player:str):
     print('Computer Choice: ', computer)
     print('Result:          ', result)
 
-playerChoice = 'rock'
+# ---------------------------------------
+
+playerChoice = input('Enter your weapon:    ')
 rps15(playerChoice)

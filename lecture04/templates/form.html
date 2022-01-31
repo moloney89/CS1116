@@ -1,0 +1,50 @@
+{% extends 'base.html' %}
+
+{% block main_content %}
+<!-- action -->
+<!-- 
+    - 'action' tells the browser where to send the data from the form
+    - When sending the data, the browser encodes it in standard URL encoding, this replaces space, slash 
+      and other characters not allowed in URLs w/hexadecimal equivalents.
+
+    - if action is left blank, the form will send the data to the same URL.
+ -->
+
+
+<!-- method -->
+<!-- 
+    There are two options for method: GET and POST
+    
+    GET:
+    - if the method='get', the data is joined by ampersands and added to the end of the URL after a question mark.
+
+    POST:
+    - if the method='post', the data is in the HTTP request body, not the URL.
+
+    In both cases the data gets sent to the server.
+
+    Flask programmers pretty much always use POST.
+ -->
+<form action="" method="post">
+<!-- ATTRIBUTES FOR <input type="text">: -->
+<!-- 
+    - 'name' -> you should almost always give <input> a name; this lets you target it with Python 
+    - 'size' -> determines the width of a text box
+    - 'maxlength' -> maximum number of characters that can be typed
+    - 'value' -> assigns a text box an initial value
+    - 'placeholder' -> Used to show the user what to type, good when short on space. Looks like greyed out text in the text box (by defualt).
+      -> You can also use <label> if you're not short on space.
+-->
+
+    <label for="given_name">Given Name:</label>
+    <input type="text" name="given_name" id='given_name' />
+    <br>
+    <label for="family_name">Family Name:</label>
+    <input type="text" name="family_name" id='family_name' />
+    <br>
+    <input type="submit" />
+    <input type="reset" />
+
+</form>
+
+{% endblock %}
