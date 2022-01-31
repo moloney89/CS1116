@@ -75,36 +75,41 @@ def send_lotto_numbers(num_lines):
 
 @app.route('/rps15/<player>')
 def rps15(player:str):
-    options = [
-            'rock','gun','lightning', 'devil','dragon',
-            'water', 'air','paper','sponge','wolf','tree',
-            'human','snake','scissors','fire'
-            ]
+    player = player.lower()
+    options = (
+                'rock','fire', 'scissors','snake','human','tree','wolf','sponge',
+                'paper','air','water','dragon','devil','lightning','gun'
+            )
+
     computer = choice(options)
 
     comp_win = 'Computer wins!'
     player_win = 'Player wins!'
     draw = "It's a draw"
 
-    
-
     result = ''
 
-    if player == computer:
+    player_beats = []
+
+    beatIndex = options.index(player)
+    i = 1
+
+    endLoop = (len(options)-1)//2
+    for i in range(1, endLoop):
+        if beatIndex == len(options)-1:
+            beatIndex = 1
+        player_beats.append(options[beatIndex + i])
+        i +=1
+    
+    if computer == player:
         result = draw
-    
-    elif (options.index(player) + 1) % 3 == options.index(computer) % 3:
-        result = comp_win
-        
 
-    else: 
+
+    elif computer in player_beats:
         result = player_win
-        
 
+    else:
+        result = comp_win
     
-
-
-
     
-
-    return render_template('rps.html', result=result, computer=computer, player=player)
+    return render_template('rps15.html', result=result, computer=computer, player=player)
