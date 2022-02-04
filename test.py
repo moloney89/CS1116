@@ -1,23 +1,11 @@
-from random import randint
+import urllib.request
+import json
+
+API_url = "http://api.exchangeratesapi.io/v1/latest?access_key=b8332a67e8775b84556eb418874799cf&base=EUR&symbols=CNY,GBP,JPY,USD"
+
+result = urllib.request.urlopen(API_url).read()
+
+json_result = json.loads(result)
+print(json_result)
 
 
-def send_lotto_numbers(num_lines):
-    list_of_lines = []
-
-    for i in range(num_lines):
-        line = []
-        for i in range(0,6):
-            n = randint(1,47)
-            while True:
-                if n in line:
-                    n = randint(1,47)
-                else:
-                    break
-            line.append(n)
-
-    
-        list_of_lines.append(line)
-
-    return list_of_lines
-
-print(send_lotto_numbers(4))

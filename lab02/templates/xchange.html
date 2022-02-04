@@ -1,0 +1,24 @@
+{% extends "base.html" %}
+{% block main_content %}
+<form action="" method="POST">
+    <label for="user_input">Enter the amount in Euros: </label>
+    <input type="text" name="user_input" id="user_input" value="{{user_input}}" />
+    <br />
+    <input type="radio" name="currency" id="CNY" value="CNY" {{CNY_checked}} />
+    <label for="CNY">CNY</label>
+    <br />
+    <input type="radio" name="currency" id="GBP" value="GBP" {{GBP_checked}}/>
+    <label for="GBP">GBP</label>
+    <br />
+    <input type="radio" name="currency" id="JPY" value="JPY" {{JPY_checked}} />
+    <label for="JPY">JPY</label>
+    <br />
+    <input type="radio" name="currency" id="USD" value="USD" {{USD_checked}} />
+    <label for="USD">USD</label>
+    <br />
+    <label for="result">Conversion: </label>
+    <input type="text" name="result" id="result" value="{{result}}" disabled />
+    <br />
+    <input type="submit" value="Convert Currency" />
+</form>
+{% endblock main_content %}

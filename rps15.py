@@ -6,7 +6,8 @@ def rps15(player:str):
                 'paper','air','water','dragon','devil','lightning','gun'
             )
 
-    computer = choice(options)
+    # computer = choice(options)
+    computer = 'paper'
 
     comp_win = 'Computer wins!'
     player_win = 'Player wins!'
@@ -20,7 +21,7 @@ def rps15(player:str):
     i = 1
 
     endLoop = (len(options)-1)//2
-    for i in range(1, endLoop):
+    for i in range(0, endLoop):
         if beatIndex == len(options)-1:
             beatIndex = 1
         player_beats.append(options[beatIndex + i])
@@ -45,5 +46,6 @@ def rps15(player:str):
 
 # ---------------------------------------
 
-playerChoice = input('Enter your weapon:    ')
+# playerChoice = input('Enter your weapon:    ')
+playerChoice = 'fire'
 rps15(playerChoice)

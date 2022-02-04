@@ -73,6 +73,22 @@ def send_lotto_numbers(num_lines):
 
     return render_template('lotto.html', line=line, list_of_lines=list_of_lines)
 
+
+@app.route('/could_it_me2/<int:num_lines>')
+def send_lotto_numbers2(num_lines):
+    list_of_lines = []
+
+    for i in range(num_lines):
+        line = []
+        for i in range(0,6):
+            n = randint(1,47)
+            line.append(n)
+
+    
+        list_of_lines.append(line)
+
+    return render_template('lotto.html', line=line, list_of_lines=list_of_lines)
+
 @app.route('/rps15/<player>')
 def rps15(player:str):
     player = player.lower()
@@ -95,9 +111,9 @@ def rps15(player:str):
     i = 1
 
     endLoop = (len(options)-1)//2
-    for i in range(1, endLoop):
+    for i in range(1, endLoop+1):
         if beatIndex == len(options)-1:
-            beatIndex = 1
+            beatIndex = 0
         player_beats.append(options[beatIndex + i])
         i +=1
     

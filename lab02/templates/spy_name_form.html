@@ -1,0 +1,20 @@
+{% extends "base.html" %}
+
+{% block main_content %}
+    <form action="" method="POST">
+        <label for="given_name">Enter your given name: </label>
+        <input type="text" name="given_name" id="given_name"  />
+        <br />
+        <label for="birthday">Enter your birthday: </label>
+        <input type="date" name="birthday" id="birthday" />
+        <input type="submit" />   
+    </form>
+
+    <p>{{error}}</p>
+
+    {% if new_first_name != '' %}
+    <p>Your code name is: {{new_first_name}} {{new_second_name}}</p>
+    {% endif %}
+    
+
+{% endblock main_content %}
