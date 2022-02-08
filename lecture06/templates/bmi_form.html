@@ -1,0 +1,26 @@
+{% extends "base.html" %}
+
+{% block main_content %}
+
+<form action="" method="POST" novalidate>
+{# The novalidate attribute doesn't mean it won't validate at all, just that we will validate on the server. #}
+    {{ form.hidden_tag() }} {# This tag must be present for it to work - security purposes (CSRF - Cross-site request forgery) #}
+    {{ form.weight.label }}
+    {{ form.weight() }} 
+    {% for error in form.weight.errors %}
+        {{error}}
+    {% endfor %}
+    <br />
+    {{ form.height.label }}
+    {{ form.height() }}
+    {% for error in form.height.errors %}
+        {{error}}
+    {% endfor %}
+    <br />
+    {{ form.bmi.label }}
+    {{ form.bmi(disable=True) }}
+    <br />
+    {{ form.submit() }}
+</form>
+
+{% endblock %}

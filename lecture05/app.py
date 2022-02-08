@@ -41,9 +41,21 @@ def bmi():
     if request.method == "GET":
         return render_template("bmi_form.html", bmi="",height="",weight="")
     else:
-        height = float(request.form["height"])
-        weight = float(request.form["weight"])
+        height = request.form["height"]
+        weight = request.form["weight"]
+
+        if weight=="" or height=="":
+            return render_template('bmi_form.html', weight=weight,height=height,bmi="", error="Error: Weight and height are required")
+        
+        try:
+            height = float(request.form["height"])
+            weight = float(request.form["weight"])
+        except ValueError:
+            return render_template('bmi_form.html', weight=weight,height=height,bmi="", error="Error: Data entered must be numbers")
+
+        if weight < 10 or weight > 500 or height < 0.5 or height > 3:
+            return render_template('bmi_form.html', weight=weight,height=height,bmi="", error="Error: Illegitimate data entered")
 
         bmi = weight/(height**2)
 
-        return render_template("bmi_form.html", bmi=bmi, height=height,weight=weight)
+        return render_template("bmi_form.html", bmi=bmi, height=height,weight=weight, error="")

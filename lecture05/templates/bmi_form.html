@@ -3,16 +3,17 @@
 {% block main_content %}
 
 <form action="" method="POST">
-    <label for="message">Enter your weight in kg: </label>
+    <label for="message">Weight (kg): </label>
     <input type="text" size="50" name="weight" id="weight" value="{{weight}}" />
     <br />
-    <label for="message">Enter your height in metres: </label>
+    <label for="message">Height (m): </label>
     <input type="text" size="50" name="height" id="height" value ="{{height}}" />
     <br />
     <label for="bmi">BMI: </label>
     <input type="text" size="50" name="bmi" id="bmi" value ="{{bmi}}" disabled />
     <br />
     <input type="submit" />
+    <p>{{error}}</p>
     
 </form>
 
