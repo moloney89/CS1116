@@ -1,0 +1,27 @@
+{% extends "base.html" %}
+
+{% block main_content %}
+<form action="" method="POST" novalidate>
+
+    {{ form.hidden_tag() }}
+    {{ form.plaintext.label}}
+    {{ form.plaintext() }}
+    {% for error in form.plaintext.errors %}
+        {{ error }}
+    {% endfor %}
+    <br />
+    {{ form.shift.label }}
+    {{ form.shift() }}
+    {% for error in form.shift.errors %}
+        {{ error }}
+    {% endfor %}
+    <br />
+    {{ form.ciphertext.label }}
+    {{ form.ciphertext(disabled=True) }}
+    <br />
+    {{ form.submit.label }}
+    {{ form.submit() }}
+
+
+</form>
+{% endblock main_content %}

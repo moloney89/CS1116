@@ -1,0 +1,17 @@
+{% extends "base.html" %}
+
+{% block main_content %}
+    <form action="" method="POST" novalidate>
+        {{ form.hidden_tag() }}
+        {{ form.input_scale.label }}
+        {{ form.input_scale() }}
+        {{ form.input() }}
+        <br />
+        {{ form.output_scale.label }}
+        {{ form.output_scale() }}
+        {{ form.output(disabled=True) }}
+        <br />
+        {{ form.submit.label }}
+        {{ form.submit() }}
+    </form>
+{% endblock main_content %}
