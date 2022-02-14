@@ -2,16 +2,21 @@
 
 {% block main_content %}
     <form action="" method="POST" novalidate>
+        <h2>From:</h2>
         {{ form.hidden_tag() }}
         {{ form.input_scale.label }}
         {{ form.input_scale() }}
         {{ form.input() }}
         <br />
+        <img src="{{url_for('static', filename='image02.jpg')}}" alt="A picture of a worm." />
+        <br />
+        <h2>To:</h2>
         {{ form.output_scale.label }}
         {{ form.output_scale() }}
         {{ form.output(disabled=True) }}
         <br />
-        {{ form.submit.label }}
         {{ form.submit() }}
     </form>
+
+    <a href="{{url_for('shift')}}">Click here to use Caesar's Cipher!</a>
 {% endblock main_content %}

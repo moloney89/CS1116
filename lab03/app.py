@@ -21,7 +21,7 @@ def shift():
                 ciphertext += char
     
         form.ciphertext.data = ciphertext
-    return render_template('shift.html', form=form, title="Caesar's Cipher")
+    return render_template('shift_form.html', form=form, title="Caesar's Cipher")
 
 @app.route('/conversion', methods=["GET","POST"])
 def conversion():
@@ -59,4 +59,4 @@ def conversion():
                 output = 5/9 * (input-32) + 273
         
         form.output.data = output
-    return render_template('conversion.html', form=form, title='Temperature Conversion')
+    return render_template('conversion_form.html', form=form, title='Temperature Conversion')
