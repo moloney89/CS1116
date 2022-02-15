@@ -31,31 +31,28 @@ def conversion():
     if form.validate_on_submit():
         input_scale = form.input_scale.data
         input = form.input.data
-        output_scale = form.output_scale
+        output_scale = form.output_scale.data
         output = None
 
-        if input_scale == 'Kelvin:':
+        if input_scale == output_scale:
+            output=input
+
+        elif input_scale == 'Kelvin:':
             if output_scale == 'Celsius:':
                 output = input-273
-            elif output_scale == 'Kelvin:':
-                output=input
-            else:
+            elif output_scale == 'Fahrenheit:':
                 output = 9/5 * (input-273) +32
 
         elif input_scale == 'Celsius:':
-            if output_scale == 'Celsius:':
-                output=input
-            elif output_scale == 'Kelvin:':
+            if output_scale == 'Kelvin:':
                 output = input+273
-            else:
+            elif output_scale == 'Fahrenheit:':
                 output = 9/5 * input + 32
 
-        else:
+        else: # Fahrenheit
             if output_scale == 'Celsius:':
                 output = 5/9 * (input-32)
-            elif output_scale == 'Fahrenheit:':
-                output = input
-            else:
+            elif output_scale == 'Kelvin:':
                 output = 5/9 * (input-32) + 273
         
         form.output.data = output

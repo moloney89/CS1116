@@ -1,0 +1,15 @@
+{% extends "base.html" %}
+
+{% block main_content %}
+    <table>
+    <caption>{{caption}}</caption>
+
+    {% for gig in gigs %}
+    <tr>
+        <td>{{ gig["band"] }}</td>
+        <td>{{ gig["gig_date"] }}</td>
+    </tr>
+    {% endfor %}
+    
+    </table>
+{% endblock main_content %}
