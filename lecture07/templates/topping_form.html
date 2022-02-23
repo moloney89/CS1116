@@ -4,7 +4,7 @@
 {% block main_content %}
     <form action="" method="POST" novalidate>
         {{ form.hidden_tag() }}
-        {{ form.topping.label }}
+        <p>Which topping do you think Elvis prefers?</p>
         {{ form.topping() }}
         <br />
         {{ form.submit }}

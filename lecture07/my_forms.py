@@ -7,6 +7,6 @@ class AliveForm(FlaskForm):
     submit = SubmitField("Submit")
 
 class ToppingForm(FlaskForm):
-    topping = RadioField("Which topping do you think Elvis prefers?",choices=["anchovies","chocolate","morphine","finger nails"],
+    topping = RadioField("",choices=["anchovies","chocolate","morphine","finger nails"],
         default = "morphine")
     submit = SubmitField("Submit")
