@@ -35,6 +35,14 @@ function draw() {
     context.fillRect(x, y, size, size); // In CompSci, co-ords function differently, the top left is (0,0)
     x = x + xChange;
     y = y + yChange;
+    if (x + size >= canvas.width || x <= 0){
+        xChange = xChange * -1;
+    }
+
+    if (y + size >= canvas.height || y <= 0){
+        yChange = yChange * -1;
+    }
+    
 
 }
 

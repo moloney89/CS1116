@@ -5,11 +5,9 @@ let fpsInterval = 1000/30; // the denominator is FPS
 let now;
 let then = Date.now();
 
-let x = 250;
-let y = 150;
-let size = 10;
-let xChange = randint(-10,10);
-let yChange = randint(-10,10);
+let particles = [];
+
+
 // Variable statements that aren't in a function are global
 
 document.addEventListener("DOMContentLoaded", init, false); // the js will wait for the page to fully load then run the init function
@@ -17,6 +15,8 @@ document.addEventListener("DOMContentLoaded", init, false); // the js will wait 
 function init() {
     canvas = document.querySelector("canvas");
     context = canvas.getContext("2d"); // This variable will do the "drawing" on the canvas
+
+    
 
     draw();
 }
@@ -30,11 +30,32 @@ function draw() {
     }
     then = now - (elapsed % fpsInterval);
 
+    for (let i = 0; i < 30; i += 1) {
+        let p = {
+            x : 250,
+            y : 150,
+            size : 10,
+            xChange : randint(-10,10),
+            yChange : randint(-10,10)
+        };
+        particles.push(p);
+    }
+
     context.clearRect(0, 0, canvas.width, canvas.height);
     context.fillStyle = "yellow";
-    context.fillRect(x, y, size, size); // In CompSci, co-ords function differently, the top left is (0,0)
-    x = x + xChange;
-    y = y + yChange;
+
+    for (let p of particles){
+        context.fillRect(p.x, p.y, p.size, p.size); 
+    }
+    for (let p of particles){
+        p.x = p.x + p.xChange;
+        p.y = p.y + p.yChange;
+        p.yChange = p.yChange + 1.5; // This gives a visual effect similar to gravity
+    }
+
+    
+    
+    
 
 }
 
