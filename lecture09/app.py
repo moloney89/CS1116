@@ -1,7 +1,7 @@
 from flask import Flask, render_template
 from database import get_db, close_db
 from forms import BandForm, GigForm, RegistrationForm
-from datetime import date, datetime
+from datetime import datetime
 from sqlite3 import IntegrityError
 from werkzeug.security import generate_password_hash
 

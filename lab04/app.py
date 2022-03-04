@@ -47,3 +47,9 @@ def min_winners():
 
 
     return render_template('min_winners.html', form=form, wins=wins, title='Eurovision Winners',caption='Eurovision Winners')
+
+# Improve your solution to Problems 1 and 2 yet further: replace the country StringField by a SelectField. However - here's the challenge - the menu choices must be retrieved from the database. Make sure that the menu choices are ordered alphabetically, and that there are no duplicates.
+
+# Then improve your solution to Problem 3 in a similar way: this time the menu choices must also include the option to not select a country.
+
+# Hint: If the SelectField is called country, then you can update form.country.choices in app.py.

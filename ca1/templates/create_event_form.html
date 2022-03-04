@@ -1,0 +1,61 @@
+{% extends "base.html" %}
+
+{% block main_content %}
+
+    <form action="" method="POST" novalidate>
+    {{ form.hidden_tag() }}
+    {{ form.event_date.label}}
+    {{ form.event_date() }}
+    <br />
+    {{ form.event_name.label }}
+    {{ form.event_name() }}
+    {% for error in form.event_name.errors %}
+    {{error}}
+    {% endfor %}
+    <br />
+    <p>Start time/end time (optional):</p>
+    
+    {{ form.event_all_day.label }}
+    {{ form.event_all_day() }}
+    <br />
+    {{ form.event_start_time.label}}
+    {{ form.event_start_time() }}
+    <br />
+    {{ form.event_end_time.label }}
+    {{ form.event_end_time()}}
+    <br />
+    {{ form.event_category.label }}
+    {{ form.event_category()}}
+    <br />
+    {{ form.event_description.label }}
+    {{ form.event_description() }}
+    {# <br />
+    {{ form.recurring_field.label }}
+    {{ form.recurring_field() }}
+    <br />
+    {{ form.recurring_period.label(class = "recurring_hidden") }}
+    {{ form.recurring_period() }}
+    <br />
+    {{ form.end_repeat.label(class = "recurring_hidden") }}
+    {{ form.end_repeat() }} #}
+    <br />
+    {{ form.submit() }}
+    </form>
+
+{% endblock main_content %}
+
+{% block javascript %}
+    {# <script>
+        const recurring_field = document.querySelector("#recurring_field")
+        const recurring_period = document.querySelector("#recurring_period");
+        
+
+        document.querySelector('#recurring_field').addEventListener('change',(event)=>{
+        if (event.target.checked){
+            event_date.classList.remove("hidden");
+        } else {
+            event_date.classList.add("hidden");
+        }
+        });
+    </script> #}
+{% endblock javascript %}

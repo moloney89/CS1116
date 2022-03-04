@@ -1,0 +1,76 @@
+{% extends "base.html" %}
+
+{% block main_content %}
+    <form action="" method="POST" novalidate>
+    {{form.hidden_tag()}}
+    {{form.view_calendar.label}}
+    <br />
+    {% for subfield in form.view_calendar %}
+    <tr>
+        <td>{{ subfield }}</td>
+        <td>{{ subfield.label }}</td>
+    </tr>
+    {% endfor %}
+    {% for error in form.view_calendar.errors %}
+    {{error}}
+    {% endfor %}
+    <br />
+    {{form.event_date(class='hidden')}}
+    <br />
+    {{form.submit()}}
+    </form>
+    {% if events %}
+        <table>
+            <tr>
+                <th>Date</th>
+                <th>Name</th>
+                <th>Start Time</th>
+                <th>End Time</th>
+                <th>Category</th>
+                <th>Description</th>
+                
+            </tr>
+            {% for event in events %}
+                <tr>
+                    <td>{{event['event_date']}}</td>
+                    <td>{{event['event_name']}}</td>
+                    <td>{{event['event_start_time']}}</td>
+                    <td>{{event['event_end_time']}}</td>
+                    <td>{{event['event_category']}}</td>
+                    <td>{{event['event_description']}}</td>
+                    <td><a href="{{ url_for('remove_event', event_id = event['event_id']) }}" onclick="return confirm('Are you sure you want to remove this event?')">Remove</a></td>
+                </tr>
+            {% endfor %}
+        </table>
+    {% endif %}
+
+    {{message}}
+{% endblock main_content %}
+
+{% block javascript %}
+    <script>
+        const event_date = document.querySelector("#event_date");
+        
+
+        document.querySelector('#view_calendar-0').addEventListener('change',(event)=>{
+        if (event.target.checked){
+            event_date.classList.remove("hidden");
+        } else {
+            event_date.classList.add("hidden");
+        }
+        });
+
+        document.querySelector('#view_calendar-1').addEventListener('change',(event)=>{
+        if (event.target.checked){
+            event_date.classList.add("hidden");
+
+        } else {
+            event_date.classList.remove("hidden");
+
+        }
+        });
+    </script>
+{% endblock javascript %}
+
+
+
