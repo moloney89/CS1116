@@ -92,9 +92,9 @@ function draw() {
     if (moveDown) {
         player.y = player.y + player.size;
     }
-    // if (moveLeft) {                          // Game objective is to get to the right of the screen, therefore you shouldn't be able to go back
-    //     player.x = player.x - player.size;
-    // }
+    if (moveLeft) {                          // Game objective is to get to the right of the screen, therefore you shouldn't be able to go back
+        player.x = player.x - player.size;
+    }
 }
 
 function randint(min, max) {
