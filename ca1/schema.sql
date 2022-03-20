@@ -7,17 +7,6 @@ CREATE TABLE users
 );
 
 
-
-DROP TABLE IF EXISTS user_details;
-
-CREATE TABLE user_details
-(
-    user_id TEXT PRIMARY KEY,
-    first_name TEXT NOT NULL,
-    last_name TEXT NOT NULL
-);
-
-
 DROP TABLE IF EXISTS events;
 
 CREATE TABLE events
@@ -31,6 +20,31 @@ CREATE TABLE events
     event_category TEXT NOT NULL,
     event_description TEXT
 );
+
+DROP TABLE IF EXISTS to_do_list;
+
+CREATE TABLE to_do_list
+(
+    item_id INTEGER PRIMARY KEY AUTOINCREMENT,
+    user_id TEXT NOT NULL,
+    item_details TEXT NOT NULL,
+    creation_date TEXT NOT NULL,
+    completed INTEGER DEFAULT FALSE
+);
+
+DROP TABLE IF EXISTS expenses;
+
+CREATE TABLE expenses
+(
+    item_id INTEGER PRIMARY KEY AUTOINCREMENT,
+    user_id TEXT NOT NULL,
+    date TEXT NOT NULL,
+    title TEXT NOT NULL,
+    amount REAL NOT NULL,
+    category TEXT DEFAULT 'Miscellaneous',
+    details TEXT
+);
+
 
 
 

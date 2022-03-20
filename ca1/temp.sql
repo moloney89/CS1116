@@ -1,1 +1,1 @@
-SELECT * FROM events;
+SELECT * FROM to_do_list;

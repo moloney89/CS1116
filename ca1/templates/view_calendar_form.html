@@ -20,16 +20,19 @@
     {{form.submit()}}
     </form>
     {% if events %}
-        <table>
-            <tr>
-                <th>Date</th>
-                <th>Name</th>
-                <th>Start Time</th>
-                <th>End Time</th>
-                <th>Category</th>
-                <th>Description</th>
-                
-            </tr>
+    <div class="table-responsive">
+        <table class="table">
+            <thead>
+                <tr>
+                    <th scope="col" class="text-center">Date</th>
+                    <th scope="col" class="text-center">Name</th>
+                    <th scope="col" class="text-center">Start Time</th>
+                    <th scope="col" class="text-center">End Time</th>
+                    <th scope="col" class="text-center">Category</th>
+                    <th scope="col" class="text-center d-none d-md-block">Description</th>
+                </tr>
+            </thead>
+            <tbody>
             {% for event in events %}
                 <tr>
                     <td>{{event['event_date']}}</td>
@@ -37,11 +40,13 @@
                     <td>{{event['event_start_time']}}</td>
                     <td>{{event['event_end_time']}}</td>
                     <td>{{event['event_category']}}</td>
-                    <td>{{event['event_description']}}</td>
-                    <td><a href="{{ url_for('remove_event', event_id = event['event_id']) }}" onclick="return confirm('Are you sure you want to remove this event?')">Remove</a></td>
+                    <td class="d-none d-md-block">{{event['event_description']}}</td>
+                    <td><a class="btn btn-primary" href="{{ url_for('remove_event', event_id = event['event_id']) }}" onclick="return confirm('Are you sure you want to remove this event?')">Remove</a></td>
                 </tr>
             {% endfor %}
+            </tbody>
         </table>
+    </div>
     {% endif %}
 
     {{message}}
