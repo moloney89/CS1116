@@ -1,0 +1,27 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8" />
+    <meta http-equiv="X-UA-Compatible" content="IE=edge" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>BMI Form</title>
+    <script src="bmi.js" type="module"></script>
+</head>
+<body>
+    <!-- Note the lack of action/method in the form, this is because the data is not being sent to the server. -->
+    <form>
+        <label for="weight">Weight (kg):</label>
+        <input type="text" name="weight" id="weight" />
+        <span id="weight_errors"></span>
+        <br />
+        <label for="height">Height (m):</label>
+        <input type="text" name="height" id="height" />
+        <span id="height_errors"></span>
+        <br />
+        <label for="bmi">BMI:</label>
+        <input type="text" name="bmi" id="bmi" disabled />
+        <br />
+        <input type="submit" />
+    </form>
+</body>
+</html>
