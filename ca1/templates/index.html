@@ -1,5 +1,37 @@
 {% extends "base.html" %}
 
 {% block main_content %}
+<div class="container">
+<div class="row">
+
+  <div class="col">
+  <div class="card me-md-auto" style="width=33%;">
+    <img src="{{url_for('static', filename='to-do-list.jpg')}}" class="card-img-top" alt="Image of a to do list in a leather notebook">
+    <div class="card-body">
+      <h5 class="card-title">Calendar</h5>
+      <p class="card-text">Allocate your time with a calendar.</p>
+    </div>
+  </div>
+  </div>
+
+<div class="col">
+<div class="card mb-md-auto" style="width=33%;">
+  <img src="{{url_for('static', filename='calendar.jpg')}}" class="card-img-top" alt="Image of a calendar.">
+  <div class="card-body">
+    <h5 class="card-title">To Do List</h5>
+    <p class="card-text">Keep track of what you need to do with a daily To Do List.</p>
+  </div>
+</div>
+</div>
+<div class="col">
+<div class="card md-md-auto" style="width=33%;">
+  <img src="{{url_for('static', filename='monthly-planner.jpg')}}" class="card-img-top" alt="A desk with assorted items on it">
+  <div class="card-body">
+    <h5 class="card-title">Expenses Tracker</h5>
+    <p class="card-text">Manage your spending with an expenses tracker, with your daily total shown on your dashboard.</p>
+  </div>
+</div>
+  </div>
+</div>
 
 {% endblock main_content %}
