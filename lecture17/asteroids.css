@@ -1,0 +1,10 @@
+canvas {
+    background: black;
+    display: block;
+    margin: 1em auto;
+}
+
+#outcome {
+    text-align: center;
+    color: black;
+}

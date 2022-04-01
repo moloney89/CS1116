@@ -102,7 +102,6 @@ function draw() {
     }
 
     // Draw player
-    context.fillStyle = "red";
     context.drawImage(IMAGES.player,
         player.frameX * player.width, player.frameY * player.width, player.width, player.height,
         player.x, player.y, player.width, player.height);
